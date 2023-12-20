@@ -1,5 +1,4 @@
 package val.gord.blogproject.security;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -8,11 +7,12 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
-@EnableWebSecurity
-@EnableMethodSecurity
+@EnableWebSecurity(debug = true)
+@EnableMethodSecurity(securedEnabled = true)
 public class BlogSecurityConfig {
     @Bean
     SecurityFilterChain configure(HttpSecurity http) throws Exception {
@@ -24,7 +24,7 @@ public class BlogSecurityConfig {
                     auth.requestMatchers("api/v1/**").authenticated();
                     auth.anyRequest().permitAll();
                 })
-                .httpBasic(a->{})
+                .httpBasic(basic->{basic.authenticationEntryPoint(new BlogAuthenticationEntryPoint());})
                 .build();
     }
 
@@ -35,6 +35,17 @@ public class BlogSecurityConfig {
 
     }
 
-
+//DisableEncodeUrlFilter
+//WebAsyncManagerIntegrationFilter
+//SecurityContextHolderFilter
+//HeaderWriterFilter
+//CorsFilter@3e07ee37
+//LogoutFilter
+//BasicAuthenticationFilter
+//RequestCacheAwareFilter
+//SecurityContextHolderAwareRequestFilter
+//AnonymousAuthenticationFilter
+//ExceptionTranslationFilter
+//AuthorizationFilter
 
 }

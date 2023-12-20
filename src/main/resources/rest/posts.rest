@@ -1,0 +1,62 @@
+### Create a new Post:
+POST http://localhost:8080/api/v1/posts
+Content-Type: application/json
+Authorization: Basic user password
+
+{
+  "title": "B Dpring Data Validations 332",
+  "description": "Validation Annatations for spring",
+  "content": "@UniqueTitle Annatation prevents null values - @Valid"
+}
+
+
+### Create invalid Post:
+POST http://localhost:8080/api/v1/posts
+Content-Type: application/json
+
+{
+  "title": "B Dpring Data Validations 332",
+  "description": "Validation Annatations for spring",
+  "content": "@UniqueTitle Annatation prevents null values - @Valid"
+}
+
+
+
+### Get all posts:
+GET http://localhost:8080/api/v1/posts
+Authorization: Basic admin admin
+
+
+### Get a valid posts by id:
+GET http://localhost:8080/api/v1/posts/106
+
+
+
+### Get an invalid posts by id:
+GET http://localhost:8080/api/v1/posts/33
+
+
+### Update a post:
+PUT http://localhost:8080/api/v1/posts/33
+Content-Type: application/json
+
+{
+  "title": "A  otNull Annatation prevents null values - @Valid!!!",
+  "description": "Validation Annatations for spring!",
+  "content": "Spring Data Validations!!!"
+}
+
+
+### Delete a Post By ID:
+DELETE http://localhost:8080/api/v1/posts/4
+
+
+### Get posts by page 1:
+GET http://localhost:8080/api/v1/posts/page?pageSize=3&pageNo=0
+
+### Get posts  page 2:
+GET http://localhost:8080/api/v1/posts/page?pageSize=3&pageNo=1
+
+
+### Get posts  page with sort and sort order:
+GET http://localhost:8080/api/v1/posts/page?pageSize=6&pageNo=0&sortBy=id&sortDir=asc

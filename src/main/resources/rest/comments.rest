@@ -1,0 +1,35 @@
+### Create a comment:
+POST http://localhost:8080/api/v1/posts/1/comments
+Content-Type: application/json
+
+{
+ "username": "moe",
+ "email": "moe@gmail.com",
+ "comment": "try to catch me!"
+}
+
+
+### Get comments by valid  post id with comments:
+GET http://localhost:8080/api/v1/posts/1/comments
+
+
+### Get comments by valid  post id without comments:
+GET http://localhost:8080/api/v1/posts/4/comments
+
+
+### Get comments by INVALID  post id
+GET http://localhost:8080/api/v1/posts/-1/comments
+
+
+### Update Comment by commentId:
+PUT http://localhost:8080/api/v1/comments/3
+Content-Type: application/json
+
+{
+  "comment":"Thank you for the post"
+}
+
+### delete coment by id
+DELETE http://localhost:8080/api/v1/comments/152
+
+

@@ -1,7 +1,6 @@
 package val.gord.blogproject.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import val.gord.blogproject.entity.Post;
 import val.gord.blogproject.entity.Role;
 
 import java.util.Optional;

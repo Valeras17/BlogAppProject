@@ -1,18 +1,14 @@
 package val.gord.blogproject.controller;
 
+import io.swagger.v3.oas.annotations.Hidden;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.util.UriComponentsBuilder;
-import val.gord.blogproject.dto.CommentRequestDto;
-import val.gord.blogproject.dto.CommentResponseDto;
-import val.gord.blogproject.dto.CommentUpdateRequestDto;
-import val.gord.blogproject.service.CommentService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 import java.util.Map;
-
+@Hidden
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/docs")

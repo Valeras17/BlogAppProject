@@ -1,5 +1,6 @@
 package val.gord.blogproject.controller;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -15,6 +16,9 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1")
+@SecurityRequirement(
+        name = "Bearer Authentication"
+)
 public class CommentsController {
     private final CommentService commentService;
     //http://localhost:8080/api/v1/posts/4/comments

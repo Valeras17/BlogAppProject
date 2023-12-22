@@ -45,19 +45,19 @@ public class PostController {
     public ResponseEntity<PostResponseDto> getPostById(@Valid @NotNull @PathVariable long id){
         return ResponseEntity.ok(postService.getPostById(id)) ;
     }
-    //update post by id
+
     //api/v1/posts/3
-    //Body dto
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<PostResponseDto> updatePostById(
             @Valid @NotNull @PathVariable long id,
             @Valid @RequestBody PostRequestDto dto){
         return ResponseEntity.ok(postService.updatePostById(dto,id));
     }
 
-    //delete by id
     //DELETE api/v1/posts/3
     @DeleteMapping ("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<PostResponseDto> deletePostById(
             @Valid @NotNull @PathVariable long id){
         return ResponseEntity.ok(postService.deletePostById(id));

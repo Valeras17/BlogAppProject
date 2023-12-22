@@ -1,7 +1,9 @@
 package val.gord.blogproject.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.autoconfigure.neo4j.Neo4jProperties;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriBuilder;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -22,9 +24,10 @@ public class CommentsController {
     public ResponseEntity<CommentResponseDto> createComment(
             @PathVariable(name = "id") long postId,
             @RequestBody CommentRequestDto dto,
-            UriComponentsBuilder uriBuilder
+            UriComponentsBuilder uriBuilder,
+            Authentication authentication
     ) {
-        var saved = commentService.createComment(postId, dto);
+        var saved = commentService.createComment(postId, dto,authentication);
         var uri =
                 uriBuilder
                         .path("/api/v1/posts/{post_id}/{comment_id}")
@@ -44,14 +47,16 @@ public class CommentsController {
     @PutMapping("/comments/{id}")
     public ResponseEntity<CommentResponseDto> updateCommentById(
             @PathVariable("id") long commetId,
-            @RequestBody CommentUpdateRequestDto dto
+            @RequestBody CommentUpdateRequestDto dto,
+            Authentication authentication
             ){
-        return ResponseEntity.ok(commentService.updateComment(commetId, dto));
+        return ResponseEntity.ok(commentService.updateComment(commetId, dto,authentication));
     }
 
     @DeleteMapping ("/comments/{id}")
-    public ResponseEntity<CommentResponseDto> deleteCommentById(@PathVariable long id){
-        return  ResponseEntity.ok(commentService.deleteCommentById(id));
+    public ResponseEntity<CommentResponseDto> deleteCommentById(
+            @PathVariable long id,Authentication authentication){
+        return  ResponseEntity.ok(commentService.deleteCommentById(id,authentication));
 
     }
 }

@@ -1,35 +1,39 @@
 ### Create a comment:
 POST http://localhost:8080/api/v1/posts/1/comments
 Content-Type: application/json
+Authorization: Basic mike Password1!
 
 {
- "username": "moe",
- "email": "moe@gmail.com",
- "comment": "try to catch me!"
+ "comment": "Thank you"
 }
 
 
 ### Get comments by valid  post id with comments:
 GET http://localhost:8080/api/v1/posts/1/comments
+Authorization: Basic mike Password1!
 
 
 ### Get comments by valid  post id without comments:
-GET http://localhost:8080/api/v1/posts/4/comments
+GET http://localhost:8080/api/v1/posts/202/comments
+Authorization: Basic mike Password1!
 
 
 ### Get comments by INVALID  post id
-GET http://localhost:8080/api/v1/posts/-1/comments
+GET http://localhost:8080/api/v1/posts/10000/comments
+Authorization: Basic mike Password1!
 
 
 ### Update Comment by commentId:
-PUT http://localhost:8080/api/v1/comments/3
+PUT http://localhost:8080/api/v1/comments/2
 Content-Type: application/json
+Authorization: Basic mike Password1!
 
 {
   "comment":"Thank you for the post"
 }
 
 ### delete coment by id
-DELETE http://localhost:8080/api/v1/comments/152
+DELETE http://localhost:8080/api/v1/comments/102
+Authorization: Basic mike Password1!
 
 

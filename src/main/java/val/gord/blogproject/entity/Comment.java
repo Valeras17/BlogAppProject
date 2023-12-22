@@ -7,16 +7,17 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString//relationships
+@ToString
 @Builder
 @Entity
 public class Comment {
     @Id
     @GeneratedValue
     private Long id;
-    private String username;
 
-    private String email;
+    @ManyToOne
+    private User user;
+
     private String comment;
 
     //relationship: ManytoOne

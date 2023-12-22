@@ -11,8 +11,6 @@ import val.gord.blogproject.dto.PostPageResponseDto;
 import val.gord.blogproject.dto.PostRequestDto;
 import val.gord.blogproject.dto.PostResponseDto;
 import val.gord.blogproject.service.PostService;
-
-import java.net.URI;
 import java.util.List;
 
 @RestController

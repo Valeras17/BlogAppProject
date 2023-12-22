@@ -1,11 +1,9 @@
 package val.gord.blogproject.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.autoconfigure.neo4j.Neo4jProperties;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.util.UriBuilder;
 import org.springframework.web.util.UriComponentsBuilder;
 import val.gord.blogproject.dto.CommentRequestDto;
 import val.gord.blogproject.dto.CommentResponseDto;
